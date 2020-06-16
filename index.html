@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawVisualization);
+
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+          ['Month', 'Dilemma', 'Under Performer', 'Enigma', 'Effective', 'Core Employee','Growth Employee','Trusted Employee','High Impact Performer', 'Future Leader'],
+        
+          ['2019/05',  0,      0,         0,             0,           0,      0,             0,           0,      0],
+          ['2019/06',  10,      13,         0,             0,           4,      5,             10,           2.8,      0],
+          ['2019/07',  20,      20,         0,             4,           6,      5,             10,           2.8,      0],
+          ['2019/08',  30,      27,         10,             4,           6,      5,             10,           2.8,      0],
+          ['2019/09',  40,      33,        25,             4,          6,      5,             10,           2.8,        0],
+          ['2019/10',  50,      33,        25,             20,           7,      5,             10,           2.8,      0],
+          ['2019/11',  60,      40,        25,             20,           8,      5,             10,           2.8,      0],
+          ['2019/12',  70,      46,        25,             20,           8,      10,             10,           2.8,     0],
+          ['2020/01',  80,      53,        25,             40,           8,      10,             20,           2.8,      0],
+          ['2020/02',  80,      60,        50,             40,           9,      15,             20,           2.8,      0],
+          ['2020/03',  80,      73,        50,             40,           9,     20,             20,           5.7,      0],
+          ['2020/04',  90,      80,         50,             40,          10,      20,             20,           8.6,      100]
+        ]);
+
+        var options = {
+          title : 'Attrition Rate Per Talent Class Past, 12 Months',
+          vAxis: {title: 'Attrition Rate'},
+          hAxis: {title: 'Month'},
+          seriesType: 'line',
+          series: {}        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 1200px; height: 500px;"></div>
+  </body>
+</html>
